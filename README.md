@@ -69,12 +69,15 @@ Descargar composer, y una vez instalado hacer:
 composer install
 ```
 
-O, según la versión de composer el comando podría ser:  `php composer.phar install`
+O, según la versión de composer el comando podría ser:  `php composer.phar install` 
+
+Dependiendo de la configuración de la máquina puede ser necesario poner en el php.ini el
+memory_limit=-1
 
 **Configurar el fichero de entorno  .env**
 
-Hay que tener un `.env` , si  no exist el fichero duplicar el `.env.dist` y cambiarle el nombre.
-Posteriormente reajustar parámetros, especialmente en los referente a base de datos.  `DATABASE_URL`.
+Hay que tener un fichero `.env` , que no se repositará. Duplicar el `.env.dist` y cambiarle el nombre.
+Posteriormente reajustar parámetros, especialmente en los referente a base de datos para asegurar conectividad.  `DATABASE_URL`.
 
 **Inicializar la Database**
 
@@ -130,12 +133,21 @@ php bin/console cache:clear
 ```
 
 **Ejecución de los tests**
-Existen dos tipos de tests, phpunit y behat. Behat usa como dependencia phpunit para las aserciones de código.
-(Puede ser necesaria alguna configuración adicional si se intenta ejecutar en entorno windows). 
+Existen dos tipos de tests, phpunit (codificación) y behat (funcionales). 
+Behat usa como dependencia phpunit para las aserciones de código. Para poder usarlo hay que duplicar el behat.yml.dist y
+convertirlo en .yml.
 Si se desea comprobar la validez de la securización por https hay que modificar el behat.yml y tener un certificado
 SSL instalado. El apache debe estar en ejecución para que corran los tests funcionales.
 Para ejecutarlos basta con: 
 ```
-bin\behat
-php bin/phpunit tests
+bin\behat o vendor\bin\behat
+vendor\bin\phpunit tests
 ```
+*NOTA1: Dependiendo del entorno el ejecutable de behat estará en una ruta u otra. También es importante prestar atención a las barras según el SO. 
+
+*NOTA2: Si queremos utilizar el PHPStorm como entorno de pruebas podemos 
+ir a Settings > PHP > Test Frameworks y seleccionar el ejecutable de behat de la carpeta vendor: 
+D:\Windows\PHPStormProjects\HOLA_CODING_TEST\vendor\behat\behat\bin\behat
+
+Como configuration file pondremos nuestro behat.yml y en listener (bug) añadimos una nueva configuración que escuche la carpeta features. 
+Hay que poner el CLI interpreter de PHP para que se puede ejecutar, y en este momento podemos ejecutar los tests de PHPStorm. 
