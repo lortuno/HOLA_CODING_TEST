@@ -1,0 +1,12 @@
+{% extends 'content_base.html.twig' %}
+
+{% block content_body %}
+    <h1>PAGINA 1</h1>
+    <p>Hello 1  {{ app.user.name }}</p>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+{% endblock %}

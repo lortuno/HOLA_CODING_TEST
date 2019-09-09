@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "cc0a20c6-f8c3-4aae-898c-88ad400b6e55",
+		"name": "hola copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a39d5978-f787-4d6a-9202-aaaeed910b41",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "yo@mil.co",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Downton",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "colin",
+							"type": "text"
+						},
+						{
+							"key": "roles[]",
+							"value": "ROLE_USER",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:8000/api/user/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a39d5978-f787-4d6a-9202-aaaeed910b41",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "peter",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "Downton",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Melissa",
+							"type": "text"
+						},
+						{
+							"key": "roles[]",
+							"value": "ROLE_ADMIN",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "19",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:8000/api/user/36/edit",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"36",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a39d5978-f787-4d6a-9202-aaaeed910b41",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:8000/api/user/43/delete",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"43",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Select",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a39d5978-f787-4d6a-9202-aaaeed910b41",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:8000/api/users",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
